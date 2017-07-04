@@ -7,18 +7,18 @@ function getRandomInRange(min, max) {
 
 const data = [];
 
-for (let i = 0; i < 11; i++) {
-  let randomCount = getRandomInRange(0, 9);
+for (let i = 0; i < 8; i++) {
+  let randomCount = getRandomInRange(0, 250);
 
   data.push({
     id: i,
     rating: 0,
-    url: `http://lorempixel.com/200/200/sports/${randomCount}`
+    url: `https://unsplash.it/200/200?image=${randomCount}`
   })
 }
 
 function sortImagesByRating(a, b) {
-  return a.rating - b.rating;
+  return b.rating - a.rating;
 }
 
 const initialState = {

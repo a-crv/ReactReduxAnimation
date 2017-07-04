@@ -19,12 +19,14 @@
   flex-wrap: wrap;
   font-size: large;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 20px 0;
   position: relative;
   width: 80%;
 }
 
 .app__intro-grid {
+  line-height: 0;
+  margin: 20px 0;
   width: 33.3333333%;
 }
 

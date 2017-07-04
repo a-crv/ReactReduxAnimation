@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 import {
-  getImages,
+  // getImages,
   improveRating,
   lowerRating
 } from '../../actions/ImagesListActions';
 import ImageItem from '../../components/ImageItem/ImageItem';
-import AnimateItem from '../../components/AnimateItem/AnimateItem';
 
 import logo from './logo.svg';
 import './App.css';
@@ -20,19 +18,6 @@ class App extends Component {
     this.displayingImageItems = this.displayingImageItems.bind(this);
     this.leftHandleClickImage = this.leftHandleClickImage.bind(this);
     this.rightHandleClickImage = this.rightHandleClickImage.bind(this);
-  }
-
-  componentWillMount() {
-    this.props.dispatch(getImages());
-  }
-
-  componentDidMount() {
-    // this.domNode = ReactDOM.findDOMNode(this.node);
-    console.log(this.refs.app);
-  }
-
-  componentWillReceiveProps() {
-    console.dir(this.refs.app);
   }
 
   leftHandleClickImage(dispatch, id) {
@@ -63,7 +48,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app" ref="app">
+      <div className="app">
         <div className="app__header">
           <img src={logo} className="app__logo" alt="logo" />
           <h2>Welcome to React</h2>
