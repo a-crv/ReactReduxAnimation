@@ -1,11 +1,19 @@
 import createReducer from '../utils/createReducer';
 import * as ActionTypes from '../constants/actionTypes';
 
+const data = [];
+
+const initialState = {
+  data
+};
+
 function getRandomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const data = [];
+function sortImagesByRating(a, b) {
+  return b.rating - a.rating;
+}
 
 for (let i = 0; i < 8; i++) {
   let randomCount = getRandomInRange(1, 250);
@@ -17,42 +25,7 @@ for (let i = 0; i < 8; i++) {
   })
 }
 
-function sortImagesByRating(a, b) {
-  return b.rating - a.rating;
-}
-
-const initialState = {
-  data,
-  error: null,
-  fetched: false,
-  fetching: false
-};
-
 export const imagesList = createReducer(initialState, {
-  [ActionTypes.GET_IMAGES_REQUEST](state) {
-    return {
-      ...state,
-      fetching: true
-    };
-  },
-
-  [ActionTypes.GET_IMAGES_SUCCESS](state, action) {
-    return {
-      ...state,
-      data: action.payload,
-      fetched: true,
-      fetching: false
-    };
-  },
-
-  [ActionTypes.GET_IMAGES_FAILURE](state, action) {
-    return {
-      ...state,
-      error: action.payload,
-      fetching: false
-    };
-  },
-
   [ActionTypes.IMPROVE_RATING](state, action) {
     let newState = Object.assign({}, state);
 

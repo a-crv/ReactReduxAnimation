@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {
-  // getImages,
   improveRating,
   lowerRating
 } from '../../actions/ImagesListActions';
@@ -19,10 +18,6 @@ class App extends Component {
     this.leftHandleClickImage = this.leftHandleClickImage.bind(this);
     this.rightHandleClickImage = this.rightHandleClickImage.bind(this);
   }
-
-  // componentWillMount() {
-  //   this.props.dispatch(getImages());
-  // }
 
   leftHandleClickImage(dispatch, id) {
     return () => dispatch(improveRating(id));

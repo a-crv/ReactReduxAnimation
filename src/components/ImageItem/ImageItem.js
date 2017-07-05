@@ -63,7 +63,7 @@ class ImageItem extends Component {
         className="image-item"
       >
         <div className="image-item__rating">{rating}</div>
-        <img src={url} className="image-item__img" alt="Картинка" />
+        <img src={url} className="image-item__img" alt="Img don't upload" />
       </div>
     );
   }
