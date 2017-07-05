@@ -8,7 +8,7 @@ function getRandomInRange(min, max) {
 const data = [];
 
 for (let i = 0; i < 8; i++) {
-  let randomCount = getRandomInRange(0, 250);
+  let randomCount = getRandomInRange(1, 250);
 
   data.push({
     id: i,

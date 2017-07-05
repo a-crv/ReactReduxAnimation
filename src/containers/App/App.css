@@ -15,8 +15,6 @@
 }
 
 .app__intro {
-  display: flex;
-  flex-wrap: wrap;
   font-size: large;
   margin: 0 auto;
   padding: 20px 0;
@@ -24,7 +22,14 @@
   width: 80%;
 }
 
+.app__intro:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 .app__intro-grid {
+  float: left;
   line-height: 0;
   margin: 20px 0;
   width: 33.3333333%;
@@ -33,4 +38,23 @@
 @keyframes app-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media (max-width: 790px) {
+
+  .app__intro {
+    width: 95%;
+  }
+
+  .app__intro-grid {
+    width: 50%;
+  }
+}
+
+@media (max-width: 490px) {
+
+  .app__intro-grid {
+    float: none;
+    width: 100%;
+  }
 }

@@ -6,17 +6,12 @@ export function getImages() {
       type: ActionTypes.GET_IMAGES_REQUEST
     });
 
-    fetch('http://api.randomuser.me/1.0/?results=50&nat=gb,us&inc=gender,name,location,email,phone,picture', {
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(res => dispatch({
+    fetch('https://api.randomuser.me/1.0/?results=50&nat=gb,us&inc=gender,name,location,email,phone,picture')
+    .then(res => {console.dir(res);return res.json()})
+    .then(res => {console.log(res);return dispatch({
         type: ActionTypes.GET_IMAGES_SUCCESS,
         payload: res
-    }))
+    })})
     .catch((error) => dispatch({
       type: ActionTypes.GET_IMAGES_FAILURE,
       payload: error

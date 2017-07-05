@@ -20,6 +20,10 @@ class App extends Component {
     this.rightHandleClickImage = this.rightHandleClickImage.bind(this);
   }
 
+  // componentWillMount() {
+  //   this.props.dispatch(getImages());
+  // }
+
   leftHandleClickImage(dispatch, id) {
     return () => dispatch(improveRating(id));
   }

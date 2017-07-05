@@ -17,7 +17,6 @@ class ImageItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // this.animate();
     let coordinates = this.getCoordinates();
     this.setState(coordinates);
   }
@@ -25,10 +24,9 @@ class ImageItem extends Component {
   componentDidUpdate() {
     let coordinates = this.getCoordinates();
     let { x, y } = coordinates;
-    let dX = Math.abs(this.state.x - x);
-    let dY = Math.abs(this.state.y - y);
+    let dX = this.state.x - x;
+    let dY = this.state.y - y;
 
-    console.log(dX, dY);
     this.animate(dX, dY);
   }
 
@@ -44,11 +42,11 @@ class ImageItem extends Component {
   animate(dX, dY) {
     const domNode = ReactDOM.findDOMNode(this);
 
-    requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
       domNode.style.transform = `translate(${dX}px, ${dY}px)`;
       domNode.style.transition = 'transform 0s';
 
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         domNode.style.transform = '';
         domNode.style.transition = 'transform 1400ms';
       })
