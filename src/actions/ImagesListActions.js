@@ -7,11 +7,11 @@ export function getImages() {
     });
 
     fetch('https://api.randomuser.me/1.0/?results=50&nat=gb,us&inc=gender,name,location,email,phone,picture')
-    .then(res => {console.dir(res);return res.json()})
-    .then(res => {console.log(res);return dispatch({
-        type: ActionTypes.GET_IMAGES_SUCCESS,
-        payload: res
-    })})
+    .then(res => res.json())
+    .then(res => dispatch({
+      type: ActionTypes.GET_IMAGES_SUCCESS,
+      payload: res
+    }))
     .catch((error) => dispatch({
       type: ActionTypes.GET_IMAGES_FAILURE,
       payload: error
